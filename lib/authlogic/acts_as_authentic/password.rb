@@ -270,7 +270,7 @@ module Authlogic
           def reset_password
             friendly_token = Authlogic::Random.friendly_token
             self.password = friendly_token
-            self.password_confirmation = friendly_token if require_password_confirmation
+            self.password_confirmation = friendly_token if defined?(self.password_confirmation)
           end
           alias_method :randomize_password, :reset_password
         
